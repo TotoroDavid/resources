@@ -1,0 +1,43 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    --bg: rgba(10, 10, 20, 1);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg);
+}
+
+div {
+    --size: min(90vmin, 600px);
+    --s: calc(var(--size) / 2);
+    --deg: 10deg;
+    --time: 10000ms;
+    --grad1: repeating-conic-gradient(from var(--start, 0deg), white 0 var(--deg), transparent 0 calc(var(--deg) * 2));
+    --grad2: radial-gradient( circle at center, transparent var(--s), var(--bg) 0);
+    --grad3: radial-gradient( circle at center, var(--bg) calc(var(--s) - 1rem), transparent 0);
+    width: var(--size);
+    height: var(--size);
+    position: relative;
+    border-radius: 50%;
+    background: var(--grad3), var(--grad2), var(--grad1), var(--bg);
+    animation: rotate var(--time) infinite linear forwards;
+    &::after {
+        --s: 2rem;
+        position: absolute;
+        content: '';
+        inset: 10%;
+        border-radius: 50%;
+        background: radial-gradient( circle at center, var(--bg) 30%, transparent 0), var(--grad2), var(--grad1), var(--bg);
+        animation: rotate calc(var(--time) / 2) infinite linear forwards reverse;
+    }
+}
+
+@keyframes rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
