@@ -1,0 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Paytone+One&display=swap");
+:root {
+    --purple: #6a67ce;
+    --pink: #fc636b;
+    --green: #3be8b0;
+    --blue: #1aafd0;
+    --yellow: #ffb900;
+    --offwhite: #f8efe9;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--green);
+    text-align: center;
+}
+
+h1 {
+    display: block;
+    font-family: "Paytone One", sans-serif;
+    font-size: 10vw;
+    color: var(--blue);
+    filter: url(#extrude);
+}
+
+svg {
+    position: absolute;
+    left: -10000px;
+    height: 0;
+    width: 0;
+}

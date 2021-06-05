@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodePen Home Animated Photo Gallery (Also Frustrating)</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <h1>Totorodavid</h1>
+    <svg>
+	<defs>
+		<!-- 		make sure the filter convers the whole viewBox by makin it LORGE -->
+		<filter id="extrude" x="-100%" y="-100%" width="300%" height="300%">
+			<!-- 			flood with a nice purple color -->
+			<feFlood result="PURPLE" flood-color="var(--purple)"></feFlood>
+			<!-- 	Order defines the depth of the extrusion; angle is defined by the position of "1" in the matrix. This is a 45deg 16px deep extrusion. The more extruded it is the more numbers in the matrix you need. But I have no understanding beyond that. come on. I mean.... literally no clue. I don't think anyone REALLY actually understands convolve matrix.  -->
+			<feConvolveMatrix order="16,16" divisor="1" in="SourceAlpha" result="EXTRUDE" kernelMatrix="1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+																																			0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+																																			0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 
+																																			0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 
+																																			0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 
+																																			0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 
+																																			0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 
+																																			0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 
+																																			0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 
+																																			0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 
+																																			0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 
+																																			0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 
+																																			0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 
+																																			0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 
+																																			0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 
+																																			0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1"></feConvolveMatrix>
+			<!-- 			smoosh those bad boys together -->
+			<feComposite in="PURPLE" in2="EXTRUDE" result="COMPOSITE" operator="in"></feComposite>
+			<!-- 			and offset them by 8px on the x and y axis -->
+			<feOffset dx="8" dy="8" in="COMPOSITE" result="OFFSET"></feOffset>
+			<!-- 			merge the source graphic and the result -->
+			<feMerge>
+				<feMergeNode in="OFFSET"></feMergeNode>
+				<feMergeNode in="SourceGraphic"></feMergeNode>
+			</feMerge>
+		</filter>
+	</defs>
+</svg>
+
+</body>
+
+
+</html>
