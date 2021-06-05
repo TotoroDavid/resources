@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodePen Home Animated Photo Gallery (Also Frustrating)</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="generator">
+        <h1>
+            <span>Random Teams</span> Generator
+        </h1>
+        <form id="form">
+            <div>
+                <label class="method-label method-2" for="teams-labels">Teams' Names</label>
+                <p>one per line or comma separated</p>
+                <textarea id="teams-labels" cols="20" rows="2" name="teams-labels" autofocus>team1, team2, team3, team4, team5, team6, team7</textarea>
+            </div>
+            <div class="members">
+                <label for="teams-members">Members' Names</label>
+                <p>one per line or comma separated</p>
+                <textarea id="teams-members" cols="20" rows="5" name="teams-members">Samba, Arthur, Marie, Kevin, Jeslie, Tony, Benjamin, Yasser, Yann, Abdelfadeil, Mahfujul, Neyer, Sami, Nabil</textarea>
+            </div>
+            <button type="submit" id="submit" class="submit">Go!</button>
+        </form>
+        <div class="results" id="results">
+            <div class="finalteams" id="finalteams"></div>
+            <button class="copy" type="button" id="copy">copy</button>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
