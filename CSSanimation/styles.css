@@ -1,0 +1,345 @@
+body {
+  background: #c89664;
+  height: 100vh;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.pistons {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: (60px)[5];
+      grid-template-rows: repeat(5, 60px);
+  -ms-grid-columns: (80px)[5];
+      grid-template-columns: repeat(5, 80px);
+  -webkit-transform: translateY(-50px);
+          transform: translateY(-50px);
+}
+
+.piston {
+  position: relative;
+  width: 50px;
+  height: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-transform: scaleY(0.5);
+          transform: scaleY(0.5);
+  -webkit-transition: 600ms;
+  transition: 600ms;
+}
+
+.piston:nth-child(10n), .piston:nth-child(10n-1), .piston:nth-child(10n-2), .piston:nth-child(10n-3), .piston:nth-child(10n-4) {
+  left: 40px;
+}
+
+.piston:nth-child(1) .graphic {
+  -webkit-animation: piston 2s ease-in-out infinite alternate;
+          animation: piston 2s ease-in-out infinite alternate;
+  -webkit-animation-delay: -270ms;
+          animation-delay: -270ms;
+  -webkit-animation-duration: 2380ms;
+          animation-duration: 2380ms;
+}
+
+.piston:nth-child(2) .graphic {
+  -webkit-animation: piston 2s ease-in-out infinite alternate;
+          animation: piston 2s ease-in-out infinite alternate;
+  -webkit-animation-delay: -128ms;
+          animation-delay: -128ms;
+  -webkit-animation-duration: 2279ms;
+          animation-duration: 2279ms;
+}
+
+.piston:nth-child(3) .graphic {
+  -webkit-animation: piston 2s ease-in-out infinite alternate;
+          animation: piston 2s ease-in-out infinite alternate;
+  -webkit-animation-delay: -11ms;
+          animation-delay: -11ms;
+  -webkit-animation-duration: 2298ms;
+          animation-duration: 2298ms;
+}
+
+.piston:nth-child(4) .graphic {
+  -webkit-animation: piston 2s ease-in-out infinite alternate;
+          animation: piston 2s ease-in-out infinite alternate;
+  -webkit-animation-delay: -310ms;
+          animation-delay: -310ms;
+  -webkit-animation-duration: 1980ms;
+          animation-duration: 1980ms;
+}
+
+.piston:nth-child(5) .graphic {
+  -webkit-animation: piston 2s ease-in-out infinite alternate;
+          animation: piston 2s ease-in-out infinite alternate;
+  -webkit-animation-delay: -772ms;
+          animation-delay: -772ms;
+  -webkit-animation-duration: 1658ms;
+          animation-duration: 1658ms;
+}
+
+.piston:nth-child(6) .graphic {
+  -webkit-animation: piston 2s ease-in-out infinite alternate;
+          animation: piston 2s ease-in-out infinite alternate;
+  -webkit-animation-delay: -58ms;
+          animation-delay: -58ms;
+  -webkit-animation-duration: 2133ms;
+          animation-duration: 2133ms;
+}
+
+.piston:nth-child(7) .graphic {
+  -webkit-animation: piston 2s ease-in-out infinite alternate;
+          animation: piston 2s ease-in-out infinite alternate;
+  -webkit-animation-delay: -545ms;
+          animation-delay: -545ms;
+  -webkit-animation-duration: 2051ms;
+          animation-duration: 2051ms;
+}
+
+.piston:nth-child(8) .graphic {
+  -webkit-animation: piston 2s ease-in-out infinite alternate;
+          animation: piston 2s ease-in-out infinite alternate;
+  -webkit-animation-delay: -975ms;
+          animation-delay: -975ms;
+  -webkit-animation-duration: 1811ms;
+          animation-duration: 1811ms;
+}
+
+.piston:nth-child(9) .graphic {
+  -webkit-animation: piston 2s ease-in-out infinite alternate;
+          animation: piston 2s ease-in-out infinite alternate;
+  -webkit-animation-delay: -855ms;
+          animation-delay: -855ms;
+  -webkit-animation-duration: 1195ms;
+          animation-duration: 1195ms;
+}
+
+.piston:nth-child(10) .graphic {
+  -webkit-animation: piston 2s ease-in-out infinite alternate;
+          animation: piston 2s ease-in-out infinite alternate;
+  -webkit-animation-delay: -572ms;
+          animation-delay: -572ms;
+  -webkit-animation-duration: 2534ms;
+          animation-duration: 2534ms;
+}
+
+.piston:nth-child(11) .graphic {
+  -webkit-animation: piston 2s ease-in-out infinite alternate;
+          animation: piston 2s ease-in-out infinite alternate;
+  -webkit-animation-delay: -210ms;
+          animation-delay: -210ms;
+  -webkit-animation-duration: 1447ms;
+          animation-duration: 1447ms;
+}
+
+.piston:nth-child(12) .graphic {
+  -webkit-animation: piston 2s ease-in-out infinite alternate;
+          animation: piston 2s ease-in-out infinite alternate;
+  -webkit-animation-delay: -704ms;
+          animation-delay: -704ms;
+  -webkit-animation-duration: 1414ms;
+          animation-duration: 1414ms;
+}
+
+.piston:nth-child(13) .graphic {
+  -webkit-animation: piston 2s ease-in-out infinite alternate;
+          animation: piston 2s ease-in-out infinite alternate;
+  -webkit-animation-delay: -858ms;
+          animation-delay: -858ms;
+  -webkit-animation-duration: 2408ms;
+          animation-duration: 2408ms;
+}
+
+.piston:nth-child(14) .graphic {
+  -webkit-animation: piston 2s ease-in-out infinite alternate;
+          animation: piston 2s ease-in-out infinite alternate;
+  -webkit-animation-delay: -254ms;
+          animation-delay: -254ms;
+  -webkit-animation-duration: 1112ms;
+          animation-duration: 1112ms;
+}
+
+.piston:nth-child(15) .graphic {
+  -webkit-animation: piston 2s ease-in-out infinite alternate;
+          animation: piston 2s ease-in-out infinite alternate;
+  -webkit-animation-delay: -989ms;
+          animation-delay: -989ms;
+  -webkit-animation-duration: 2643ms;
+          animation-duration: 2643ms;
+}
+
+.piston:nth-child(16) .graphic {
+  -webkit-animation: piston 2s ease-in-out infinite alternate;
+          animation: piston 2s ease-in-out infinite alternate;
+  -webkit-animation-delay: -62ms;
+          animation-delay: -62ms;
+  -webkit-animation-duration: 1835ms;
+          animation-duration: 1835ms;
+}
+
+.piston:nth-child(17) .graphic {
+  -webkit-animation: piston 2s ease-in-out infinite alternate;
+          animation: piston 2s ease-in-out infinite alternate;
+  -webkit-animation-delay: -948ms;
+          animation-delay: -948ms;
+  -webkit-animation-duration: 2723ms;
+          animation-duration: 2723ms;
+}
+
+.piston:nth-child(18) .graphic {
+  -webkit-animation: piston 2s ease-in-out infinite alternate;
+          animation: piston 2s ease-in-out infinite alternate;
+  -webkit-animation-delay: -392ms;
+          animation-delay: -392ms;
+  -webkit-animation-duration: 1084ms;
+          animation-duration: 1084ms;
+}
+
+.piston:nth-child(19) .graphic {
+  -webkit-animation: piston 2s ease-in-out infinite alternate;
+          animation: piston 2s ease-in-out infinite alternate;
+  -webkit-animation-delay: -428ms;
+          animation-delay: -428ms;
+  -webkit-animation-duration: 2675ms;
+          animation-duration: 2675ms;
+}
+
+.piston:nth-child(20) .graphic {
+  -webkit-animation: piston 2s ease-in-out infinite alternate;
+          animation: piston 2s ease-in-out infinite alternate;
+  -webkit-animation-delay: -247ms;
+          animation-delay: -247ms;
+  -webkit-animation-duration: 1931ms;
+          animation-duration: 1931ms;
+}
+
+.piston:nth-child(21) .graphic {
+  -webkit-animation: piston 2s ease-in-out infinite alternate;
+          animation: piston 2s ease-in-out infinite alternate;
+  -webkit-animation-delay: -711ms;
+          animation-delay: -711ms;
+  -webkit-animation-duration: 1365ms;
+          animation-duration: 1365ms;
+}
+
+.piston:nth-child(22) .graphic {
+  -webkit-animation: piston 2s ease-in-out infinite alternate;
+          animation: piston 2s ease-in-out infinite alternate;
+  -webkit-animation-delay: -855ms;
+          animation-delay: -855ms;
+  -webkit-animation-duration: 2135ms;
+          animation-duration: 2135ms;
+}
+
+.piston:nth-child(23) .graphic {
+  -webkit-animation: piston 2s ease-in-out infinite alternate;
+          animation: piston 2s ease-in-out infinite alternate;
+  -webkit-animation-delay: -287ms;
+          animation-delay: -287ms;
+  -webkit-animation-duration: 2262ms;
+          animation-duration: 2262ms;
+}
+
+.piston:nth-child(24) .graphic {
+  -webkit-animation: piston 2s ease-in-out infinite alternate;
+          animation: piston 2s ease-in-out infinite alternate;
+  -webkit-animation-delay: -280ms;
+          animation-delay: -280ms;
+  -webkit-animation-duration: 1213ms;
+          animation-duration: 1213ms;
+}
+
+.piston:nth-child(25) .graphic {
+  -webkit-animation: piston 2s ease-in-out infinite alternate;
+          animation: piston 2s ease-in-out infinite alternate;
+  -webkit-animation-delay: -606ms;
+          animation-delay: -606ms;
+  -webkit-animation-duration: 1244ms;
+          animation-duration: 1244ms;
+}
+
+.graphic {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.graphic::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 0;
+  padding-top: 100%;
+  background: #fff;
+  border-radius: 100%;
+}
+
+.graphic::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  width: 50%;
+  height: 100%;
+  background: #fff;
+  border-radius: 0 0 999px 999px;
+}
+
+.eye {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 8px;
+  height: 16px;
+  background: #000;
+  z-index: 1;
+  border-radius: 100%;
+}
+
+.eye::before {
+  position: absolute;
+  top: -5px;
+  width: 10px;
+  height: 15px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 100%;
+}
+
+@-webkit-keyframes piston {
+  0% {
+    height: 150%;
+  }
+  50% {
+    height: 35%;
+  }
+  100% {
+    height: 100%;
+  }
+}
+
+@keyframes piston {
+  0% {
+    height: 150%;
+  }
+  50% {
+    height: 35%;
+  }
+  100% {
+    height: 100%;
+  }
+}
+/*# sourceMappingURL=styles.css.map */
