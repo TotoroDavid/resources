@@ -1,0 +1,70 @@
+@font-face {
+  font-family: 'Marvin Visions Variable';
+  src: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/756881/MarvinVisionsTrial-Variable.ttf");
+}
+
+body {
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+body:after {
+  content: '';
+  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/756881/texture.svg);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 999;
+  pointer-events: none;
+  opacity: 0.2;
+  -webkit-filter: invert(1);
+          filter: invert(1);
+  background-size: cover;
+}
+
+small {
+  font-family: Roboto, sans-serif;
+  color: #4f4547;
+  padding-top: 1rem;
+}
+
+#quote {
+  --weight: 10;
+  font-family: 'Marvin Visions Variable';
+  font-size: 15vw;
+  font-weight: 170;
+  margin: 0;
+  text-align: center;
+}
+
+#quote > * {
+  font-variation-settings: "wght" var(--weight);
+  -webkit-transition: font-variation-settings cubic-bezier(0.445, 0.05, 0.55, 0.95) 1.6s -0.2s;
+  transition: font-variation-settings cubic-bezier(0.445, 0.05, 0.55, 0.95) 1.6s -0.2s;
+  background: url(https://media.giphy.com/media/3o7buijTqhjxjbEqjK/giphy.gif);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(179, 122, 153, 0.4);
+  background-size: cover;
+  background-position: bottom;
+}
+
+#quote > *:hover {
+  --weight: 300;
+}
+/*# sourceMappingURL=styles.css.map */
