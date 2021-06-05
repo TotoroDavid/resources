@@ -1,0 +1,12 @@
+svg {
+  height: 100vh;
+  width: 100vw;
+}
+
+body {
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  background-color: #ffb367;
+}
+/*# sourceMappingURL=styles.css.map */
