@@ -1,0 +1,94 @@
+body {
+    background: #c7c913;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.camera {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    &.z {
+        transform: rotateZ(-45deg);
+    }
+    &.y {
+        transform: rotateX(45deg);
+    }
+}
+
+.building {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #2586ea;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    &::before {
+        content: '';
+        position: absolute;
+        height: 100%;
+        background: #e8ea25;
+        transform-origin: 100% 50%;
+        transform: translateX(-100%) rotateY(-90deg);
+        backface-visibility: hidden;
+    }
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        background: #2725ea;
+        transform-origin: 50% 0;
+        transform: translateY(100%) rotateX(-90deg);
+        backface-visibility: hidden;
+    }
+}
+
+.city {
+    width: 100%;
+    height: 100vh;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+}
+
+.area {
+    position: absolute;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    animation: slide 40000ms linear infinite;
+    @for $i from 1 through 200 {
+        $width: random(150) + 30px;
+        $height: random(400) + 20px;
+        $depth: random(150) + 30px;
+        $top: random(100) + 0%;
+        $left: random(140) - 20%;
+        $delay: random(40000) * -1ms;
+        &:nth-child(#{$i}) {
+            top: $top;
+            left: $left;
+            width: $width;
+            height: $depth;
+            animation-delay: $delay;
+            .building {
+                transform: translate(-50%, -50%) translateZ($height);
+                &::before {
+                    width: $height;
+                }
+                &::after {
+                    height: $height;
+                }
+            }
+        }
+    }
+}
+
+@keyframes slide {
+    0% {
+        transform: translateY(-200vh);
+    }
+    100% {
+        transform: translateY(200vh)
+    }
+}
