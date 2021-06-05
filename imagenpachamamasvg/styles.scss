@@ -1,0 +1,24 @@
+@import "bourbon";
+$green1: #9ED5BC;
+$green2: #5DA3A6;
+$white: rgba(230, 230, 230, .8);
+body {
+    margin-top: 2em;
+    text-align: center;
+    background: #333333;
+}
+
+#logo {
+    max-width: 300px;
+    path {
+        stroke: darken($green2, 10%);
+        stroke-width: 0.8px;
+        fill: $green2;
+        @include transition(fill .3s, stroke-width .3s);
+    }
+}
+
+.white path {
+    stroke-width: 0px !important;
+    fill: $white !important;
+}
