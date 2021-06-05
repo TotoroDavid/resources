@@ -1,0 +1,235 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0 auto;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background-color: #111;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.container {
+  position: relative;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.wave {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+.wave:nth-child(1) .bar {
+  width: 2px;
+  height: 420px;
+  background-color: #ccc;
+}
+
+.wave:nth-child(n+2) .bar {
+  -webkit-animation: barHeight 0.9s infinite ease-in-out alternate, barSkew 0.9s infinite ease-in-out alternate;
+          animation: barHeight 0.9s infinite ease-in-out alternate, barSkew 0.9s infinite ease-in-out alternate;
+}
+
+.wave .bar:nth-child(1) {
+  -webkit-animation-delay: calc(var(--f) * 0), calc(var(--f) * 0 - 0.45s);
+          animation-delay: calc(var(--f) * 0), calc(var(--f) * 0 - 0.45s);
+}
+
+.wave .bar:nth-child(2) {
+  -webkit-animation-delay: calc(var(--f) * 1), calc(var(--f) * 1 - 0.45s);
+          animation-delay: calc(var(--f) * 1), calc(var(--f) * 1 - 0.45s);
+}
+
+.wave .bar:nth-child(3) {
+  -webkit-animation-delay: calc(var(--f) * 2), calc(var(--f) * 2 - 0.45s);
+          animation-delay: calc(var(--f) * 2), calc(var(--f) * 2 - 0.45s);
+}
+
+.wave .bar:nth-child(4) {
+  -webkit-animation-delay: calc(var(--f) * 3), calc(var(--f) * 3 - 0.45s);
+          animation-delay: calc(var(--f) * 3), calc(var(--f) * 3 - 0.45s);
+}
+
+.wave .bar:nth-child(5) {
+  -webkit-animation-delay: calc(var(--f) * 4), calc(var(--f) * 4 - 0.45s);
+          animation-delay: calc(var(--f) * 4), calc(var(--f) * 4 - 0.45s);
+}
+
+.wave .bar:nth-child(6) {
+  -webkit-animation-delay: calc(var(--f) * 5), calc(var(--f) * 5 - 0.45s);
+          animation-delay: calc(var(--f) * 5), calc(var(--f) * 5 - 0.45s);
+}
+
+.wave .bar:nth-child(7) {
+  -webkit-animation-delay: calc(var(--f) * 6), calc(var(--f) * 6 - 0.45s);
+          animation-delay: calc(var(--f) * 6), calc(var(--f) * 6 - 0.45s);
+}
+
+.wave .bar:nth-child(8) {
+  -webkit-animation-delay: calc(var(--f) * 7), calc(var(--f) * 7 - 0.45s);
+          animation-delay: calc(var(--f) * 7), calc(var(--f) * 7 - 0.45s);
+}
+
+.wave .bar:nth-child(9) {
+  -webkit-animation-delay: calc(var(--f) * 8), calc(var(--f) * 8 - 0.45s);
+          animation-delay: calc(var(--f) * 8), calc(var(--f) * 8 - 0.45s);
+}
+
+.wave .bar:nth-child(10) {
+  -webkit-animation-delay: calc(var(--f) * 9), calc(var(--f) * 9 - 0.45s);
+          animation-delay: calc(var(--f) * 9), calc(var(--f) * 9 - 0.45s);
+}
+
+.wave .bar:nth-child(11) {
+  -webkit-animation-delay: calc(var(--f) * 10), calc(var(--f) * 10 - 0.45s);
+          animation-delay: calc(var(--f) * 10), calc(var(--f) * 10 - 0.45s);
+}
+
+.wave .bar:nth-child(12) {
+  -webkit-animation-delay: calc(var(--f) * 11), calc(var(--f) * 11 - 0.45s);
+          animation-delay: calc(var(--f) * 11), calc(var(--f) * 11 - 0.45s);
+}
+
+.wave .bar:nth-child(13) {
+  -webkit-animation-delay: calc(var(--f) * 12), calc(var(--f) * 12 - 0.45s);
+          animation-delay: calc(var(--f) * 12), calc(var(--f) * 12 - 0.45s);
+}
+
+.wave .bar:nth-child(14) {
+  -webkit-animation-delay: calc(var(--f) * 13), calc(var(--f) * 13 - 0.45s);
+          animation-delay: calc(var(--f) * 13), calc(var(--f) * 13 - 0.45s);
+}
+
+.wave .bar:nth-child(15) {
+  -webkit-animation-delay: calc(var(--f) * 14), calc(var(--f) * 14 - 0.45s);
+          animation-delay: calc(var(--f) * 14), calc(var(--f) * 14 - 0.45s);
+}
+
+.wave .bar:nth-child(16) {
+  -webkit-animation-delay: calc(var(--f) * 15), calc(var(--f) * 15 - 0.45s);
+          animation-delay: calc(var(--f) * 15), calc(var(--f) * 15 - 0.45s);
+}
+
+.wave .bar:nth-child(17) {
+  -webkit-animation-delay: calc(var(--f) * 16), calc(var(--f) * 16 - 0.45s);
+          animation-delay: calc(var(--f) * 16), calc(var(--f) * 16 - 0.45s);
+}
+
+.wave .bar:nth-child(18) {
+  -webkit-animation-delay: calc(var(--f) * 17), calc(var(--f) * 17 - 0.45s);
+          animation-delay: calc(var(--f) * 17), calc(var(--f) * 17 - 0.45s);
+}
+
+.wave .bar:nth-child(19) {
+  -webkit-animation-delay: calc(var(--f) * 18), calc(var(--f) * 18 - 0.45s);
+          animation-delay: calc(var(--f) * 18), calc(var(--f) * 18 - 0.45s);
+}
+
+.wave .bar:nth-child(20) {
+  -webkit-animation-delay: calc(var(--f) * 19), calc(var(--f) * 19 - 0.45s);
+          animation-delay: calc(var(--f) * 19), calc(var(--f) * 19 - 0.45s);
+}
+
+.wave .bar:nth-child(21) {
+  -webkit-animation-delay: calc(var(--f) * 20), calc(var(--f) * 20 - 0.45s);
+          animation-delay: calc(var(--f) * 20), calc(var(--f) * 20 - 0.45s);
+}
+
+.wave .bar:nth-child(22) {
+  -webkit-animation-delay: calc(var(--f) * 21), calc(var(--f) * 21 - 0.45s);
+          animation-delay: calc(var(--f) * 21), calc(var(--f) * 21 - 0.45s);
+}
+
+.wave .bar:nth-child(23) {
+  -webkit-animation-delay: calc(var(--f) * 22), calc(var(--f) * 22 - 0.45s);
+          animation-delay: calc(var(--f) * 22), calc(var(--f) * 22 - 0.45s);
+}
+
+.wave .bar:nth-child(24) {
+  -webkit-animation-delay: calc(var(--f) * 23), calc(var(--f) * 23 - 0.45s);
+          animation-delay: calc(var(--f) * 23), calc(var(--f) * 23 - 0.45s);
+}
+
+.wave[data-level="1"] .bar {
+  width: 11px;
+  background-color: #fff;
+  --f: -0.05625s;
+  --h: 60px;
+}
+
+.wave[data-level="2"] .bar {
+  width: 8px;
+  background-color: #eee;
+  --f: -0.1125s;
+  --h: 120px;
+}
+
+.wave[data-level="3"] .bar {
+  width: 5px;
+  background-color: #eee;
+  --f: -0.075s;
+  --h: 180px;
+}
+
+@-webkit-keyframes barHeight {
+  from {
+    height: var(--h);
+  }
+  to {
+    height: calc(var(--h) + 100px);
+  }
+}
+
+@keyframes barHeight {
+  from {
+    height: var(--h);
+  }
+  to {
+    height: calc(var(--h) + 100px);
+  }
+}
+
+@-webkit-keyframes barSkew {
+  from {
+    -webkit-transform: skewY(30deg);
+            transform: skewY(30deg);
+  }
+  to {
+    -webkit-transform: skewY(-30deg);
+            transform: skewY(-30deg);
+  }
+}
+
+@keyframes barSkew {
+  from {
+    -webkit-transform: skewY(30deg);
+            transform: skewY(30deg);
+  }
+  to {
+    -webkit-transform: skewY(-30deg);
+            transform: skewY(-30deg);
+  }
+}
+/*# sourceMappingURL=styles.css.map */
