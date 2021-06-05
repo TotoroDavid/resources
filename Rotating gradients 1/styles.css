@@ -1,0 +1,168 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+@property --color {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #ffffff;
+}
+
+body {
+  --bg: rgba(10, 10, 20, 1);
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: var(--bg);
+}
+
+div {
+  --size: min(90vmin, 600px);
+  --deg: 2.5deg;
+  --time: 20000ms;
+  --grad1: repeating-conic-gradient(from var(--start, 0deg), white 0 var(--deg), transparent 0 calc(var(--deg) * 4));
+  --grad2: conic-gradient( var(--color, red), var(--color, red) var(--deg), transparent 0);
+  --grad3: radial-gradient( circle at center, var(--bg) 60%, transparent 0);
+  --ease: cubic-bezier(.44, .17, .37, 1);
+  width: var(--size);
+  height: var(--size);
+  position: relative;
+  border-radius: 50%;
+  background: var(--grad3), var(--grad2), var(--grad1);
+  -webkit-animation: rotate1 var(--time) infinite forwards var(--ease);
+          animation: rotate1 var(--time) infinite forwards var(--ease);
+}
+
+div::before, div::after {
+  position: absolute;
+  content: '';
+  background: var(--grad3), var(--grad2), var(--grad1), var(--bg);
+}
+
+div::before {
+  inset: 9%;
+  border-radius: 50%;
+  animation: rotate2 var(--time) infinite forwards reverse var(--ease);
+}
+
+div::after {
+  position: absolute;
+  content: '';
+  inset: 16.5%;
+  border-radius: 50%;
+  -webkit-animation: rotate3 var(--time) infinite forwards var(--ease);
+          animation: rotate3 var(--time) infinite forwards var(--ease);
+}
+
+@-webkit-keyframes rotate1 {
+  25% {
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  75% {
+    -webkit-transform: rotate(270deg);
+            transform: rotate(270deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate1 {
+  25% {
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  75% {
+    -webkit-transform: rotate(270deg);
+            transform: rotate(270deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes rotate2 {
+  33.33% {
+    -webkit-transform: rotate(120deg);
+            transform: rotate(120deg);
+  }
+  66.67% {
+    -webkit-transform: rotate(240deg);
+            transform: rotate(240deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate2 {
+  33.33% {
+    -webkit-transform: rotate(120deg);
+            transform: rotate(120deg);
+  }
+  66.67% {
+    -webkit-transform: rotate(240deg);
+            transform: rotate(240deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes rotate3 {
+  50% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate3 {
+  50% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes rotate {
+  10% {
+    -webkit-transform: rotate(calc(var(--deg) * 2));
+            transform: rotate(calc(var(--deg) * 2));
+  }
+}
+
+@keyframes rotate {
+  10% {
+    -webkit-transform: rotate(calc(var(--deg) * 2));
+            transform: rotate(calc(var(--deg) * 2));
+  }
+}
+/*# sourceMappingURL=styles.css.map */
