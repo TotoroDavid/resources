@@ -1,0 +1,233 @@
+/**
+ * Custom Web Fonts
+ */
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700,400);
+
+/**
+ * Variables
+ */
+
+// Breakpoints
+$breakpoints: ( small: 40em, medium: 64em, large: 80em, xlarge: 125em);
+// Media Quries
+$small: "(min-width: 40em)";
+$medium: "(min-width: 64em)";
+$large: "(min-width: 80em)";
+$xlarge: "(min-width: 125em)";
+// Spacing
+$base-spacing: 1em;
+// Line-Height
+$base-line-height: 1.5;
+$header-line-height: 1.25;
+// Colors
+$off-white: #F5F5E9;
+$base-accent-color: #B5A54A;
+$base-font-color: #4B4D4B;
+// Transition Settings
+$base-transition-duration: .3s;
+$base-transition-timing: ease-in-out;
+
+/**
+ * Base Styles
+ */
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    /* 1 */
+}
+
+body {
+    background-color: $off-white;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 1em;
+    color: $base-font-color;
+    line-height: $base-line-height;
+}
+
+a {
+    color: $base-accent-color;
+    transition: color $base-transition-duration $base-transition-timing;
+    text-decoration: none;
+    &:hover,
+    &:focus {
+        color: darken($base-accent-color, 10%);
+    }
+}
+
+img {
+    max-width: 100%;
+}
+
+p {
+    margin: 0 0 $base-spacing;
+}
+
+@function headings($from:1, $to:6) {
+    @if $from==$to {
+        @return 'h#{$from}';
+    }
+    @else {
+        @return 'h#{$from},'+headings($from+1, $to);
+    }
+}
+
+#{headings(1,6)} {
+    font-weight: 700;
+}
+
+
+/**
+ * Global Styles
+ */
+
+.container {
+    margin: 0 auto;
+    padding: 0 $base-spacing;
+    max-width: map-get($breakpoints, large);
+}
+
+[role="banner"],
+[role="contentinfo"] {
+    background-color: white;
+}
+
+[role="banner"] {
+    padding: $base-spacing*4 0;
+    border-top: 4px solid $base-accent-color;
+    @media #{$large} {
+        padding: $base-spacing*6 0;
+    }
+}
+
+[role="contentinfo"] {
+    padding: $base-spacing*2 0;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+p {
+    color: lighten($base-font-color, 15%);
+    @media #{$small} {
+        max-width: 50%;
+    }
+}
+
+
+/**
+ * Core Slat Layout
+ */
+
+.slat {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    @media #{$small} {
+        height: 150px;
+    }
+    @media #{$medium} {
+        height: 250px;
+    }
+    @media #{$large} {
+        height: 300px;
+    }
+    @media #{$xlarge} {
+        height: 400px;
+    }
+}
+
+.slat__body {
+    padding: $base-spacing;
+    @media #{$small} {
+        position: absolute;
+        z-index: 2;
+        top: 50%;
+        transform: translate( 0, -50%);
+        max-width: (map-get($breakpoints, large) - $base-spacing)/2;
+    }
+    @media #{$large} {
+        left: 50%;
+        transform: translate( -(map-get($breakpoints, large) - $base-spacing)/2, -50%);
+        padding-left: 0;
+    }
+}
+
+.slat__item {
+    @media #{$small} {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        width: 50%;
+        height: 100%;
+        overflow: hidden;
+    }
+}
+
+.slat__item img {
+    display: block;
+    position: relative;
+}
+
+
+/**
+ * Slat Elements
+ */
+
+.slat__title {
+    margin: 0;
+    font-size: 1em;
+    @media #{$medium} {
+        font-size: 1.5em;
+    }
+    @media #{$large} {
+        font-size: 2em;
+    }
+}
+
+
+/**
+ * Slat Modifiers
+ */
+
+.slat--reversed {
+    .slat__item {
+        @media #{$small} {
+            right: 50%;
+            left: 0;
+        }
+    }
+    .slat__body {
+        @media #{$small} {
+            left: 50%;
+        }
+        @media #{$large} {
+            transform: translate( 0, -50%);
+            padding: $base-spacing*2;
+        }
+    }
+}
+
+
+/**
+ * Slat Elements
+ */
+
+.slat__body dt,
+.slat__body dd {
+    display: inline-block;
+}
+
+.slat__body dt {
+    font-weight: bold;
+    &:after {
+        content: ":";
+        display: inline-block;
+        margin-right: $base-spacing/3;
+    }
+}
