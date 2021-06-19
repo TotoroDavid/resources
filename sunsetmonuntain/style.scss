@@ -1,0 +1,61 @@
+$red: #E9214F;
+$burnt-sienna: #F06B4B;
+$goldenrod: #F6DA71;
+$scooter: #349597;
+$midnight-express: #20283B;
+$marzipan: #FCDC9F;
+$fruit-salad: #49934E;
+$goblin: #3D7C42;
+$chambray: #44557E;
+$port-gore: #384668;
+$white: #ffffff;
+$silver-sand: #BBBBBB;
+body {
+    background-color: $midnight-express;
+}
+
+svg {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 500px;
+    backface-visibility: hidden;
+}
+
+.scene1 {
+    .bg {
+        fill: $scooter;
+    }
+    .ground {
+        fill: $marzipan;
+    }
+    .sky1 {
+        fill: $goldenrod;
+    }
+    .sky2 {
+        fill: $burnt-sienna;
+    }
+    .sky3 {
+        fill: $red;
+    }
+    .tree-left {
+        fill: $fruit-salad;
+    }
+    .tree-right {
+        fill: $goblin;
+    }
+    .mountain-left {
+        fill: $chambray;
+    }
+    .mountain-right {
+        fill: $port-gore;
+    }
+    .mountain-top-left {
+        fill: $white;
+    }
+    .mountain-top-right {
+        fill: $silver-sand;
+    }
+}
