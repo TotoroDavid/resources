@@ -1,0 +1,121 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,800");
+body {
+  background-color: #EFCDB8;
+  font-family: 'Poppins', sans-serif;
+  color: #2F275E;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow: hidden;
+}
+
+.square {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: absolute;
+  width: 400px;
+  height: 100%;
+  border: solid 10px #2F275E;
+  color: #EFCDB8;
+  background: repeating-linear-gradient(45deg, transparent, transparent 10px, #2F275E 10px, #2F275E 20px);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.square span {
+  position: absolute;
+  text-transform: uppercase;
+  line-height: 4rem;
+  font-weight: 800;
+  font-size: 90px;
+  top: 25%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  text-shadow: 10px 10px #2F275E;
+}
+
+.items {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
+}
+
+.item {
+  color: #EFCDB8;
+  width: 250px;
+  font-weight: 800;
+  font-size: 24px;
+  white-space: nowrap;
+  border: solid 10px #EFCDB8;
+  padding: 10px;
+  margin-top: -10px;
+  background-color: #2F275E;
+  overflow: hidden;
+}
+
+.anim-info {
+  position: absolute;
+  font-weight: 800;
+}
+
+.anim-info .info-field {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: absolute;
+  background-color: #EFCDB8;
+  border: 8px solid #2F275E;
+  margin-top: -8px;
+  padding: 10px;
+  word-wrap: none;
+  font-size: 24px;
+  overflow: hidden;
+}
+
+.anim-info.info-panel {
+  top: 40px;
+}
+
+.anim-info.info-items {
+  bottom: 320px;
+  color: #EF787D;
+}
+
+.anim-info.info-items .info-field {
+  border: 8px solid #EF787D;
+}
+
+.anim-info.reverse .info-field {
+  right: 0px;
+}
+
+.info-field:nth-child(1) {
+  -webkit-transform: translate(0, 0px);
+          transform: translate(0, 0px);
+}
+
+.info-field:nth-child(2) {
+  -webkit-transform: translate(0, 56px);
+          transform: translate(0, 56px);
+}
+
+.info-field:nth-child(3) {
+  -webkit-transform: translate(0, 112px);
+          transform: translate(0, 112px);
+}
+
+.info-field:nth-child(4) {
+  -webkit-transform: translate(0, 168px);
+          transform: translate(0, 168px);
+}
+
+.info-field:nth-child(5) {
+  -webkit-transform: translate(0, 224px);
+          transform: translate(0, 224px);
+}
+
+.label {
+  white-space: nowrap;
+}
+/*# sourceMappingURL=style.css.map */
