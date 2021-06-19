@@ -1,0 +1,247 @@
+@import url("https://fonts.googleapis.com/css?family=IM+Fell+English+SC");
+:root {
+  font-size: 0.625em;
+}
+
+/* 
+layout
+*/
+html,
+body {
+  min-height: 100vh;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+/* 
+Counters 
+*/
+.menu ol {
+  counter-reset: menu;
+}
+
+/*
+Regular menu items
+*/
+.menu-item a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  /*shrink towards text*/
+  color: currentColor;
+  text-decoration: none;
+  padding: 0.3rem 0;
+  /* avoid flickin' */
+  -webkit-box-ordinal-group: 1;
+      -ms-flex-order: 0;
+          order: 0;
+}
+
+.menu-item a::before {
+  /* dots */
+  content: "";
+  display: block;
+  border-bottom: 1px dotted black;
+  position: relative;
+  top: -3px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  margin: 0 1rem;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+}
+
+.menu-item a::after {
+  /* item ids */
+  counter-increment: menu;
+  content: counters(menu, ".");
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+  -webkit-transform: rotate(30deg) scale(1.2);
+          transform: rotate(30deg) scale(1.2);
+  text-decoration: underline;
+}
+
+/* 
+Sub menu & items
+*/
+.sub-menu {
+  font-size: 1.6rem;
+  font-weight: normal;
+}
+
+.sub-menu > li > a {
+  text-indent: 0ch;
+  /*
+    Chrome indentS the "dots" elm, i.e. it counts pseudo-elm.
+    FF and Edge indents first non pseudo-elm. 
+    Turn it off for consistency.
+  */
+  padding: 0.5rem 0 0.5rem 2ch;
+  margin: 0;
+}
+
+/*
+Main menu
+*/
+.menu {
+  width: 22vw;
+  min-width: 20ch;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  font: bold 2.4rem/1 'IM Fell English SC', serif;
+  position: relative;
+  -webkit-transform: rotate(-30deg);
+          transform: rotate(-30deg);
+}
+
+.menu::before {
+  content: "/";
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -webkit-transform: rotate(30deg);
+          transform: rotate(30deg);
+  margin-bottom: 1rem;
+}
+
+.menu::after {
+  content: "/";
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -webkit-transform: rotate(30deg);
+          transform: rotate(30deg);
+  margin-top: 1rem;
+}
+
+/*
+Fx
+*/
+.menu {
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+}
+
+.menu:hover {
+  -webkit-transform: rotate(0);
+          transform: rotate(0);
+}
+
+.menu::before {
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+
+.menu:hover::before {
+  -webkit-transform: rotate(0);
+          transform: rotate(0);
+  content: "__";
+}
+
+.menu::after {
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+
+.menu:hover::after {
+  -webkit-transform: rotate(0);
+          transform: rotate(0);
+  content: "__";
+}
+
+.menu .menu-item a::after {
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+}
+
+.menu:hover .menu-item a::after {
+  -webkit-transform: rotate(0);
+          transform: rotate(0);
+}
+
+.menu:hover > ol > .menu-item {
+  opacity: 0.3;
+}
+
+.menu-item:hover {
+  -webkit-transition: background-color 0.3s;
+  transition: background-color 0.3s;
+  background: rgba(255, 255, 0, 0.15);
+  opacity: 1 !important;
+}
+
+.menu-item:hover a::after {
+  text-decoration: none;
+}
+
+.menu-item:hover > a::before {
+  -webkit-transition: flex-grow 0.3s, -webkit-box-flex 0.3s;
+  transition: flex-grow 0.3s, -webkit-box-flex 0.3s;
+  transition: flex-grow 0.3s;
+  transition: flex-grow 0.3s, -webkit-box-flex 0.3s, -ms-flex-positive 0.3s;
+  width: 0;
+  -webkit-box-flex: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  -webkit-transform-origin: center bottom;
+          transform-origin: center bottom;
+}
+
+/*
+Collapse
+*/
+.sub-menu > .menu-item {
+  max-height: 1ch;
+  -webkit-transform: scaleY(0.1);
+          transform: scaleY(0.1);
+  -webkit-transform-origin: center top;
+          transform-origin: center top;
+  -webkit-transition: max-height 0.5s, -webkit-transform 0.2s;
+  transition: max-height 0.5s, -webkit-transform 0.2s;
+  transition: transform 0.2s, max-height 0.5s;
+  transition: transform 0.2s, max-height 0.5s, -webkit-transform 0.2s;
+}
+
+.menu:hover .sub-menu .menu-item {
+  max-height: 10em;
+  -webkit-transform: scaleY(1);
+          transform: scaleY(1);
+}
+/*# sourceMappingURL=style.css.map */
