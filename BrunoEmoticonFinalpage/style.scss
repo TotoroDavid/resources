@@ -1,0 +1,249 @@
+$color-1: #c65471;
+$color-2: #9e435a;
+$color-3: #8edbea;
+$color-4: #fff;
+$color-5: #4c4c4c;
+$color-6: #ff6666;
+%circle {
+    border-radius: 50%;
+}
+
+%perspective {
+    perspective: 10px;
+}
+
+@mixin shape ($width, $height: null) {
+    width: $width;
+    height: $height;
+    @if $height==null {
+        height: $width;
+    }
+}
+
+@mixin position-absolute ($top: null, $left: null, $right: null) {
+    position: absolute;
+    top: $top;
+    left: $left;
+    right: $right;
+}
+
+%ears {
+    @extend %perspective;
+    @include shape(100%, 150%);
+    border-radius: 50% 50% 0 0;
+    border: 42px solid;
+    border-color: $color-3 transparent transparent transparent;
+}
+
+%ears-after {
+    @extend %circle;
+    @include shape(41px, 15%);
+    background-color: $color-3;
+}
+
+%arms {
+    @extend %perspective;
+    @include shape(40%, 45%);
+    border-radius: 40% 40% 0 0;
+    border: 26px solid;
+    border-color: $color-3 transparent transparent transparent;
+}
+
+%arms-after {
+    @extend %circle;
+    @include shape(41px, 26px);
+    background-color: $color-3;
+}
+
+%legs {
+    @extend %perspective;
+    @include shape(50%, 75%);
+    border-radius: 40% 40% 0 0;
+    border: 26px solid;
+    border-color: $color-3 transparent transparent transparent;
+}
+
+%legs-after {
+    @extend %circle;
+    @include shape(40px, 25px);
+    background-color: $color-3;
+}
+
+@mixin shape-body ($rotate, $top: null, $left: null, $right: null) {
+    @include position-absolute($top, $left, $right);
+    transform: rotate($rotate);
+}
+
+body {
+    min-width: 470px;
+    background-color: $color-1;
+}
+
+:before,
+:after {
+    content: '';
+}
+
+.stage {
+    overflow: hidden;
+    &_floor {
+        @extend %circle;
+        @include shape(300px, 0);
+        animation: floor 1s 1.5s 1 forwards, shadow 0.9s 2s 2;
+        background-color: $color-2;
+        position: relative;
+        margin-left: -150px;
+        left: 50%;
+        z-index: -1;
+    }
+}
+
+.bruno {
+    @include shape(250px, 300px);
+    border-radius: 45%;
+    animation: scale 1s 1s 1 forwards, jump 0.5s 1.9s 4 cubic-bezier(.14, .99, .83, .67) alternate;
+    background-color: $color-3;
+    margin: 13% auto 12px;
+    position: relative;
+    transition: all 1s;
+    transform: scale(0);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent;
+    &_ear--left {
+        @extend %ears;
+        @include shape-body(-20deg, -11%, -40%);
+        &:after {
+            @extend %ears-after;
+            @include shape-body(35deg, 0, 4.9%);
+        }
+    }
+    &_ear--right {
+        @extend %ears;
+        @include shape-body(20deg, -11%, null, -40%);
+        &:after {
+            @extend %ears-after;
+            @include shape-body(-35deg, 0, null, 4.8%);
+        }
+    }
+    &_eye--left {
+        @extend %circle;
+        @include shape(60px);
+        @include position-absolute(20%, 15%);
+        background-color: $color-4;
+        box-shadow: 0 0 0 4px $color-4;
+        border: 1px dashed $color-5;
+        &:before {
+            @extend %circle;
+            @include shape(10px);
+            @include position-absolute();
+            background-color: $color-5;
+            margin: -5px 0 0 -5px;
+            transform: translate(30px, 30px);
+        }
+    }
+    &_eye--right {
+        @include shape(5px, 60px);
+        @include position-absolute(20%, null, 25%);
+        animation: eye-right 1s 1s 1 forwards;
+        background-color: $color-5;
+        transform: rotate(90deg);
+        &:before {
+            @include shape(5px, 60px);
+            @include position-absolute(0, null, 25%);
+            animation: eye-left 1s 1s 1 forwards;
+            background-color: $color-5;
+        }
+    }
+    &_mouth {
+        @include shape(80%, 5px);
+        @include position-absolute(55%, 10%);
+        background-color: $color-5;
+        cursor: pointer;
+        z-index: 10;
+        &:focus:after,
+        &:hover:after {
+            height: 60px;
+        }
+        &:after {
+            @include shape(30px, 25px);
+            @include position-absolute();
+            background-color: $color-6;
+            border: 1px dashed $color-4;
+            border-radius: 0 0 30px 30px;
+            box-shadow: 0 0 0 2px $color-6;
+            transform: translate(275%, 7px);
+            transition: height 0.4s linear;
+        }
+    }
+    &_arm--left {
+        @extend %arms;
+        @include shape-body(-30deg, 50%, null, 50%);
+        &:after {
+            @extend %arms-after;
+            @include shape-body(-45deg, -9px, -19px);
+        }
+    }
+    &_arm--right {
+        @extend %arms;
+        @include shape-body(30deg, 50%, 50%);
+        &:after {
+            @extend %arms-after;
+            @include shape-body(45deg, -9px, null, -19px);
+        }
+    }
+    &_leg--left {
+        @extend %legs;
+        @include shape-body(130deg, 22%, -32%);
+        &:after {
+            @extend %legs-after;
+            @include shape-body(60deg, -6px, null, -10px);
+        }
+    }
+    &_leg--right {
+        @extend %legs;
+        @include shape-body(-130deg, 22%, null, -32%);
+        &:after {
+            @extend %legs-after;
+            @include shape-body(-60deg, -6px, -10px);
+        }
+    }
+}
+
+@keyframes floor {
+    100% {
+        height: 50px;
+    }
+}
+
+@keyframes scale {
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes shadow {
+    100% {
+        width: 240px;
+        margin-left: -120px;
+    }
+}
+
+@keyframes jump {
+    100% {
+        margin-top: 5%;
+        margin-bottom: 8%;
+    }
+}
+
+@keyframes eye-right {
+    100% {
+        transform: rotate(45deg);
+    }
+}
+
+@keyframes eye-left {
+    100% {
+        transform: rotate(-90deg);
+        top: 3.5%;
+    }
+}
