@@ -1,0 +1,347 @@
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  color: #3e2723;
+  font-family: sans-serif;
+  font-size: 1.25em;
+  background-color: #ff9800;
+}
+
+.title {
+  padding: 2rem;
+  font-size: 2em;
+  font-weight: bold;
+  font-family: 'Creepster', cursive;
+}
+
+.note {
+  padding: 2rem;
+  font-size: small;
+  text-align: right;
+}
+
+svg > * {
+  stroke: #000;
+  stroke-width: 2px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+svg > *:not([fill]) {
+  fill: none;
+}
+
+div {
+  position: absolute;
+  -webkit-transform-origin: center top;
+          transform-origin: center top;
+  -webkit-transition: 200ms;
+  transition: 200ms;
+}
+
+.body {
+  position: relative;
+  top: -2.5em;
+  width: 8em;
+  height: 10.25em;
+  margin: auto;
+}
+
+.hips {
+  bottom: 0;
+  left: 50%;
+  width: 5em;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.torso {
+  top: 0;
+  left: 50%;
+  width: 8em;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.head {
+  bottom: 86%;
+  left: 50%;
+  width: 4em;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+#mouth-smile,
+#mouth-o {
+  display: none;
+}
+
+.arm {
+  top: 2.8125em;
+  width: 1.25em;
+  -webkit-transform-origin: center 12%;
+          transform-origin: center 12%;
+}
+
+.arm.left {
+  left: 87%;
+}
+
+.arm.right {
+  right: 87%;
+}
+
+.forarm {
+  top: 83%;
+  width: 155%;
+}
+
+.left .forarm {
+  right: -15%;
+  -webkit-transform-origin: 60% 0%;
+          transform-origin: 60% 0%;
+}
+
+.right .forarm {
+  left: -15%;
+  -webkit-transform-origin: 40% 0%;
+          transform-origin: 40% 0%;
+}
+
+.leg {
+  top: 89%;
+  width: 27%;
+  -webkit-transform-origin: center -3%;
+          transform-origin: center -3%;
+}
+
+.leg.left {
+  right: 19.5%;
+}
+
+.leg.right {
+  left: 19.5%;
+}
+
+.lowerleg {
+  top: 75%;
+  width: 2.78125em;
+}
+
+.left .lowerleg {
+  left: 0;
+  -webkit-transform-origin: 45% 0;
+          transform-origin: 45% 0;
+}
+
+.right .lowerleg {
+  right: 0;
+  -webkit-transform-origin: 55% 0;
+          transform-origin: 55% 0;
+}
+
+.crotch {
+  top: 9.25em;
+  left: 50%;
+  width: 2em;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+/* Wave */
+.wave #mouth-flat {
+  display: none;
+}
+
+.wave #mouth-smile {
+  display: initial;
+}
+
+.wave .arm.right {
+  -webkit-transform: rotate(50deg);
+          transform: rotate(50deg);
+}
+
+.wave .arm.right .forarm {
+  -webkit-animation: wave 0.3s 6 linear alternate;
+          animation: wave 0.3s 6 linear alternate;
+}
+
+.wave .arm.right .forarm svg {
+  position: relative;
+  left: -0.375em;
+  -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
+}
+
+/**
+* Movement
+*/
+/* Body */
+.body[data-body-pos="1"] {
+  -webkit-transform: translateY(25%);
+          transform: translateY(25%);
+}
+
+.body[data-body-pos="2"] {
+  -webkit-transform: translateY(68.5%);
+          transform: translateY(68.5%);
+}
+
+/* Left Leg */
+.body[data-body-pos="1"] .leg.left {
+  -webkit-transform: rotate(-70deg);
+          transform: rotate(-70deg);
+}
+
+.body[data-body-pos="2"] .leg.left {
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+}
+
+/* Right Leg */
+.body[data-body-pos="1"] .leg.right {
+  -webkit-transform: rotate(70deg);
+          transform: rotate(70deg);
+}
+
+.body[data-body-pos="2"] .leg.right {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+/* Left Lower Leg */
+.body[data-body-pos="1"] .leg.left .lowerleg {
+  -webkit-transform: rotate(70deg);
+          transform: rotate(70deg);
+}
+
+.body[data-body-pos="2"] .leg.left .lowerleg {
+  -webkit-transform: rotate(0);
+          transform: rotate(0);
+}
+
+/* Right Lower Leg */
+.body[data-body-pos="1"] .leg.right .lowerleg {
+  -webkit-transform: rotate(-70deg);
+          transform: rotate(-70deg);
+}
+
+.body[data-body-pos="2"] .leg.right .lowerleg {
+  -webkit-transform: rotate(0);
+          transform: rotate(0);
+}
+
+/* Left Arm */
+.body[data-arm-pos="2"] .arm.left,
+.body[data-arm-pos="3"] .arm.left,
+.body[data-arm-pos="4"] .arm.left {
+  -webkit-transform: rotate(-50deg);
+          transform: rotate(-50deg);
+}
+
+/* Right Arm */
+.body[data-arm-pos="2"] .arm.right,
+.body[data-arm-pos="3"] .arm.right,
+.body[data-arm-pos="4"] .arm.right {
+  -webkit-transform: rotate(50deg);
+          transform: rotate(50deg);
+}
+
+/* Left Forarm */
+.body[data-arm-pos="1"] .arm.left .forarm,
+.body[data-arm-pos="3"] .arm.left .forarm {
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+}
+
+.body[data-arm-pos="1"] .arm.left .forarm svg,
+.body[data-arm-pos="3"] .arm.left .forarm svg {
+  position: relative;
+  right: -20%;
+  -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
+}
+
+.body[data-arm-pos="2"] .arm.left .forarm {
+  right: -11%;
+  width: 152%;
+  -webkit-transform: rotate(0);
+          transform: rotate(0);
+}
+
+.body[data-arm-pos="4"] .arm.left .forarm {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+/* Right Forarm */
+.body[data-arm-pos="1"] .arm.right .forarm,
+.body[data-arm-pos="3"] .arm.right .forarm {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.body[data-arm-pos="1"] .arm.right .forarm svg,
+.body[data-arm-pos="3"] .arm.right .forarm svg {
+  position: relative;
+  left: -20%;
+  -webkit-transform: scaleX(-1);
+          transform: scaleX(-1);
+}
+
+.body[data-arm-pos="2"] .arm.right .forarm {
+  left: -11%;
+  width: 152%;
+  -webkit-transform: rotate(0);
+          transform: rotate(0);
+}
+
+.body[data-arm-pos="4"] .arm.right .forarm {
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+}
+
+/* Mouth */
+.body[data-body-pos="1"] #mouth-smile {
+  display: initial;
+}
+
+.body[data-body-pos="1"] #mouth-flat,
+.body[data-body-pos="1"] #mouth-o {
+  display: none;
+}
+
+.body[data-body-pos="2"] #mouth-o {
+  display: initial;
+}
+
+.body[data-body-pos="2"] #mouth-smile,
+.body[data-body-pos="2"] #mouth-flat {
+  display: none;
+}
+
+/**
+* Animations
+*/
+@-webkit-keyframes wave {
+  100% {
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+  }
+}
+@keyframes wave {
+  100% {
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+  }
+}
+/*# sourceMappingURL=style.css.map */
