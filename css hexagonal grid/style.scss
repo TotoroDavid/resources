@@ -1,0 +1,171 @@
+// impl
+:root {
+    --hypot: 12vmin;
+    --inset: 1vmin;
+    --scale: 1;
+    --gap: 1vmin;
+    /* ---- styling ---- */
+    --color0: cyan;
+    --color1: #222f;
+    --bgcolor0: #0aca;
+    --bgcolor1: #222a;
+    /* ---- internal ---- */
+    --sin30: 0.5;
+    --cos30: 0.8660254037844387;
+    --height: calc(var(--hypot) * var(--cos30));
+    --hex-height: calc(2 * var(--hypot));
+    --hex-width: calc(2 * var(--height));
+    --row-height: calc(1.5 * var(--hypot));
+    --p: calc(0.5 * var(--hypot));
+    --clip-path: polygon( 0 var(--p), 50% 0, 100% var(--p), 100% calc(100% - var(--p)), 50% 100%, 0 calc(100% - var(--p)));
+    --dx: calc(var(--inset) * var(--cos30));
+    --dy: calc(var(--inset) * var(--sin30));
+    --clip-path-inset: polygon( var(--dx) calc(var(--p) + var(--dy)), 50% var(--inset), calc(100% - var(--dx)) calc(var(--p) + var(--dy)), calc(100% - var(--dx)) calc(100% - var(--p) - var(--dy)), 50% calc(100% - var(--inset)), var(--dx) calc(100% - var(--p) - var(--dy)));
+}
+
+body {
+    display: grid;
+    min-height: 100vh;
+    place-content: center;
+    &::before {
+        content: '';
+        display: block;
+        inline-size: 100vw;
+        block-size: 100vh;
+        position: fixed;
+        background: linear-gradient(-45deg, var(--bgcolor0) 60%, var(--bgcolor1) 0), linear-gradient(to top left, var(--bgcolor0) 50%, var(--bgcolor1) 0), linear-gradient(to bottom left, var(--bgcolor0) 50%, var(--bgcolor1) 0), linear-gradient(135deg, var(--bgcolor0) 20%, var(--bgcolor1) 0);
+    }
+}
+
+h1 a {
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    padding: 5vmin;
+    color: salmon;
+}
+
+ol.com {
+    width: calc(4 * var(--hex-width));
+    height: calc(4 * var(--row-height));
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: var(--gap);
+    place-items: center;
+    filter: drop-shadow(0 0 1px black) saturate(2);
+    li {
+        width: 100%;
+        height: calc(2 / 1.5 * 100%); // see recipe https://ycwhk.blogspot.com/2021/01/css-hexagonal-grid.html
+        display: grid;
+        transform: scale(var(--scale));
+        filter: drop-shadow(0 0 1px black);
+        animation: 3s anim cubic-bezier(0.075, 0.82, 0.165, 1);
+        @keyframes anim {
+            from {
+                transform: scale( 0.5)
+            }
+        }
+        a {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            position: relative;
+            overflow: hidden;
+            clip-path: var(--clip-path);
+            &::before {
+                content: '';
+                background: repeating-conic-gradient(transparent, var(--color0) 25deg, var(--color1) 22.5deg, transparent 90deg);
+                ;
+                display: block;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                animation: var(--animation-duration) f linear infinite;
+                @keyframes f {
+                    from {
+                        transform: scale(2) rotate(0)
+                    }
+                    to {
+                        transform: scale(2) rotate(1turn)
+                    }
+                }
+            }
+            img {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                clip-path: var(--clip-path-inset);
+                transition: transform 0.3s;
+                &:hover {
+                    transform: scale(1.25) rotate(5deg);
+                }
+            }
+        }
+    }
+    //
+    // For items splited by grid line.
+    // An+B see https://ycwhk.blogspot.com/2020/11/css-range-and-negation.html
+    //
+    li:nth-of-type(1),
+    li:nth-of-type(n + 4):nth-of-type(-n + 6) {
+        grid-column-end: span 2;
+        width: calc(0.5 * (100% - var(--gap)));
+    }
+    li:nth-of-type(1) {
+        grid-row: 1;
+        grid-column-start: 2;
+    }
+    li:nth-of-type(4) {
+        grid-row: 3;
+        grid-column-start: 1;
+    }
+    li:nth-of-type(5) {
+        grid-row: 3;
+        grid-column-start: 2;
+    }
+    li:nth-of-type(6) {
+        grid-row: 3;
+        grid-column-start: 3;
+    }
+    // For items bounded by single cell
+    li:nth-of-type(2),
+    li:nth-of-type(3),
+    li:nth-of-type(n + 7):nth-of-tyep(-n + 10) {
+        width: 100%;
+    }
+    li:nth-of-type(2) {
+        grid-row: 2;
+        grid-column: 2;
+    }
+    li:nth-of-type(3) {
+        grid-row: 2;
+        grid-column: 3;
+    }
+    li:nth-of-type(7) {
+        grid-row: 4;
+        grid-column: 1;
+    }
+    li:nth-of-type(8) {
+        grid-row: 4;
+        grid-column: 2;
+    }
+    li:nth-of-type(9) {
+        grid-row: 4;
+        grid-column: 3;
+    }
+    li:nth-of-type(10) {
+        grid-row: 4;
+        grid-column: 4;
+    }
+    // Optional styling
+    li:nth-of-type(1) {
+        --animation-duration: 2s;
+    }
+    li:nth-of-type(n + 2):nth-of-type(-n + 10) {
+        --color0: black;
+        --animation-duration: 5s;
+    }
+}
