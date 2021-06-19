@@ -1,0 +1,289 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat|Playfair+Display");
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+  border-radius: 1em;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #fff;
+  border-radius: 1em;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+  width: calc(2px * 2);
+  border-radius: 1em;
+}
+
+::-webkit-scrollbar-track-piece {
+  background: #000;
+  width: calc(2px / 2);
+  border-radius: 1em;
+}
+
+::-webkit-scrollbar-corner {
+  background: #000;
+}
+
+::-webkit-resizer {
+  background: #000;
+}
+
+body {
+  scrollbar-face-color: #fff;
+  scrollbar-track-color: #000;
+}
+
+html {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: Montserrat;
+  font-size: 1vmin;
+  color: #fff;
+  background-image: radial-gradient(ellipse at center, #333, #000);
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+@media (max-width: 900px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 400px) {
+  body {
+    font-size: 20px;
+  }
+}
+
+.message {
+  right: 0.5vw;
+  top: 1vw;
+  width: 100vw;
+  padding: 0.5em;
+  font-size: 0.75em;
+}
+
+.message a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid #444;
+}
+
+.message a:hover {
+  border-width: 3px;
+}
+
+.container {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.container:hover .card {
+  opacity: 0.5;
+}
+
+.container .modal {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.container .card {
+  display: inline-block;
+  position: relative;
+  width: 30em;
+  height: 20em;
+  min-width: 300px;
+  min-height: 200px;
+  margin: 2em;
+  border-radius: 8em 1em;
+  background: #291b32;
+  overflow: hidden;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  -webkit-transition: opacity 0.5s cubic-bezier(0.6, 0.04, 0.98, 0.335), -webkit-transform 0.5s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  transition: opacity 0.5s cubic-bezier(0.6, 0.04, 0.98, 0.335), -webkit-transform 0.5s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  transition: opacity 0.5s cubic-bezier(0.6, 0.04, 0.98, 0.335), transform 0.5s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+  transition: opacity 0.5s cubic-bezier(0.6, 0.04, 0.98, 0.335), transform 0.5s cubic-bezier(0.6, -0.28, 0.735, 0.045), -webkit-transform 0.5s cubic-bezier(0.6, -0.28, 0.735, 0.045);
+}
+
+.container .card:hover {
+  opacity: 1;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.container .card:hover .pic {
+  opacity: 1;
+}
+
+.container .card.active {
+  opacity: 1;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+.container .card.active .pic {
+  opacity: 1;
+  top: 2em;
+  left: 2em;
+  width: 7em;
+  height: 7em;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.container .card.active .title {
+  top: 1.75em;
+  bottom: auto;
+  left: 5em;
+  width: 14em;
+  padding-left: 3em;
+}
+
+.container .card.active .info {
+  opacity: 1;
+  top: 10em;
+  left: 5em;
+  width: 23em;
+  height: 9em;
+  font-size: 1em;
+}
+
+.container .card .pic {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.5;
+  width: 100%;
+  height: 100%;
+  background: url(https://source.unsplash.com/rDEOVtE7vOs) center center/cover no-repeat;
+  -webkit-transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.container .card .gradient {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(235, 164, 164, 0.15) 0%, rgba(242, 195, 171, 0.25) 100%);
+}
+
+.container .card .title {
+  position: absolute;
+  left: 0;
+  bottom: 2em;
+  width: 80%;
+  padding: 1em;
+  font-size: 1.25em;
+  text-align: left;
+  border-radius: 0 0.25em 2em 0;
+  background: linear-gradient(135deg, rgba(235, 164, 164, 0.85) 0%, rgba(242, 195, 171, 0.75) 100%);
+  -webkit-transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.container .card .info {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  text-align: left;
+  font-size: 0;
+  line-height: 2em;
+  -webkit-transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.container .card .info div {
+  position: relative;
+}
+
+.container .card .info div:before {
+  content: '';
+  position: absolute;
+  top: 0.25em;
+  left: -2em;
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.container .card .info div.email:before {
+  -webkit-mask: url(https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/svg/envelope-closed.svg) center center/1em 1em no-repeat;
+  mask: url(https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/svg/envelope-closed.svg) center center/1em 1em no-repeat;
+}
+
+.container .card .info div.phone:before {
+  -webkit-mask: url(https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/svg/phone.svg) center center/1em 1em no-repeat;
+  mask: url(https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/svg/phone.svg) center center/1em 1em no-repeat;
+}
+
+.container .card .info div.company:before {
+  -webkit-mask: url(https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/svg/globe.svg) center center/1em 1em no-repeat;
+  mask: url(https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/svg/globe.svg) center center/1em 1em no-repeat;
+}
+
+.container .card .info div.id:before {
+  -webkit-mask: url(https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/svg/person.svg) center center/1em 1em no-repeat;
+  mask: url(https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/svg/person.svg) center center/1em 1em no-repeat;
+}
+
+@media (max-width: 900px) {
+  .container .card {
+    width: calc(100vw - 5em);
+    height: calc(30vh - 2em);
+  }
+  .container .card.active .title {
+    width: 16em;
+  }
+}
+
+@media (max-width: 400px) {
+  .container .card {
+    width: 200px;
+    height: 100px;
+  }
+  .container .card.active {
+    height: 500px;
+  }
+  .container .card.active .title {
+    left: 0;
+    top: 160px;
+    padding-left: 1em;
+  }
+  .container .card.active .info {
+    top: 250px;
+    left: 10px;
+    width: 280px;
+    height: 200px;
+    font-size: 15px;
+  }
+}
+/*# sourceMappingURL=style.css.map */
