@@ -1,0 +1,146 @@
+.wrapper {
+    // Rotation
+    transform: rotate3d(0, 0, 0, 0);
+    transform-origin: center center;
+    transform-style: preserve-3d;
+    animation: 7s rotatediv infinite;
+}
+
+:root {
+    --template-columns: 100px 100px 1fr;
+    --height: 200px;
+    --clip: 200px 0;
+    @media screen and (min-width: 600px) {
+        --template-columns: 125px 125px 1fr;
+        --height: 250px;
+        --clip: 250px 0;
+    }
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: var(--template-columns);
+    grid-template-row: 1fr 1fr 1fr;
+    .grid-item {
+        overflow: hidden;
+        grid-column: 1 / span 2;
+        height: 150px;
+        &:nth-child(1) {
+            background: #eb2b27;
+            height: var(--height);
+            // offset for rotation
+            transform: translate3d(0, 0, 40px);
+        }
+        &:nth-child(2) {
+            height: auto;
+            background: #dfe1d6;
+            grid-column: 3;
+            grid-row: 1 / span 2;
+            // offset for rotation
+            transform: translate3d(0, 0, 120px);
+        }
+        &:nth-child(3) {
+            grid-column: 1 / span 3;
+            grid-row: 2;
+            clip-path: polygon(0 0, var(--clip), 100% 100%, 0% 100%);
+            background: #00000a;
+            // offset for rotation
+            transform: translate3d(0, 0, 160px);
+        }
+        &:nth-child(4) {
+            grid-column: 1 / span 3;
+            grid-row: 3;
+            background: #eb2b27;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            // offset for rotation
+            transform: translate3d(0, 0, 80px);
+        }
+    }
+}
+
+// Alignment and misc themeing.
+$body-color: #212121;
+$text-color: #dfe1d6;
+body {
+    background: $body-color;
+}
+
+.wrapper {
+    box-shadow: -10px 5px 20px rgba(black, 0.5);
+    width: 90%;
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 10px;
+    background: black;
+}
+
+#toggle {
+    border: 2px solid $text-color;
+    background: transparent;
+    padding: 10px;
+    color: $text-color;
+    font-size: 12px;
+    text-transform: uppercase;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    &:hover,
+    &:focus {
+        background: $text-color;
+        color: $body-color;
+    }
+    &:active {
+        transform: translate(0, 2px);
+    }
+}
+
+.no-animation {
+    .wrapper {
+        animation: none;
+    }
+}
+
+@keyframes rotatediv {
+    10% {
+        transform: rotate3d(0, 0, 0, 0);
+    }
+    50% {
+        transform: rotate3d(3, 29, 0, 80deg);
+    }
+    80% {
+        transform: rotate3d(0, 0, 0, 0);
+    }
+}
+
+p.more {
+    padding: 5px;
+    position: absolute;
+    top: 30px;
+}
+
+p.more,
+a {
+    color: $text-color;
+    text-align: center;
+}
+
+h1 {
+    margin: 20px;
+}
+
+.inner-grid {
+    display: grid;
+    padding: 0 20px;
+    grid-template-columns: 1fr 1fr 1fr;
+    color: white;
+    font-size: 11px;
+    line-height: 1.5;
+    letter-spacing: 0.08rem;
+    grid-gap: 5px;
+    align-content: end;
+    p {
+        margin: 0;
+    }
+}
